@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyword Flashcards - Electric Current and Its Effects (Grade 7)</title>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--pcb:#0b3d2e;--pcb2:#0f5640;--trace:#d4a531;--pad:#f2c94c;--ink:#f4fff9;--card:#fffdf5;--cardInk:#13261f;--accent:#ff6b35;}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--ink);background:var(--pcb);
+ background-image:
+  radial-gradient(circle at 20px 20px, var(--pad) 3px, transparent 4px),
+  linear-gradient(90deg, transparent 49%, rgba(212,165,49,.22) 49%, rgba(212,165,49,.22) 51%, transparent 51%),
+  linear-gradient(0deg, transparent 49%, rgba(212,165,49,.12) 49%, rgba(212,165,49,.12) 51%, transparent 51%),
+  linear-gradient(160deg, var(--pcb2), var(--pcb));
+ background-size:80px 80px,160px 80px,80px 160px,100% 100%;}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 40px;}
+header{text-align:center}
+.chip{display:inline-block;font-family:'Chakra Petch',monospace;font-size:13px;letter-spacing:2px;background:#062a1f;border:2px solid var(--trace);
+ padding:6px 14px;border-radius:6px;color:var(--pad);position:relative}
+.chip:before,.chip:after{content:"";position:absolute;top:50%;width:26px;height:2px;background:var(--trace)}
+.chip:before{left:-28px}.chip:after{right:-28px}
+h1{font-family:'Chakra Petch',monospace;font-size:clamp(24px,5vw,36px);margin:14px 0 4px;letter-spacing:1px}
+.sub{opacity:.85;margin:0 0 20px}
+.progress{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.bar{flex:1;height:12px;background:#062a1f;border:2px solid var(--trace);border-radius:8px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--pad),var(--accent));transition:width .35s}
+.count{font-family:'Chakra Petch',monospace;font-size:15px;min-width:70px;text-align:right}
+.dots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px}
+.dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--trace);background:transparent;cursor:pointer;padding:0}
+.dot.seen{background:#6fcf97}.dot.cur{background:var(--pad);box-shadow:0 0 10px var(--pad)}
+.scene{perspective:1200px;height:330px;margin-bottom:18px}
+.card{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;cursor:pointer;outline:none}
+.card.flipped{transform:rotateY(180deg)}
+.card:focus-visible .face{box-shadow:0 0 0 4px var(--accent)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;padding:30px;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;text-align:center;border:3px solid var(--trace)}
+.front{background:#062a1f;}
+.front .term{font-family:'Chakra Petch',monospace;font-size:clamp(30px,6vw,46px);color:var(--pad);text-shadow:0 0 18px rgba(242,201,76,.45)}
+.front .hint{margin-top:16px;font-size:14px;opacity:.75}
+.back{background:var(--card);color:var(--cardInk);transform:rotateY(180deg)}
+.back .bt{font-family:'Chakra Petch',monospace;color:var(--pcb2);font-size:20px;margin-bottom:10px}
+.back .def{font-size:clamp(16px,2.6vw,20px);line-height:1.55}
+.pad{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--pad);border:3px solid #8a6d1c}
+.p1{top:12px;left:12px}.p2{top:12px;right:12px}.p3{bottom:12px;left:12px}.p4{bottom:12px;right:12px}
+.trace{position:absolute;height:3px;background:var(--trace);opacity:.7}
+.t1{top:18px;left:30px;width:28%}.t2{bottom:18px;right:30px;width:28%}
+.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+button.btn{font-family:'Chakra Petch',monospace;font-size:16px;padding:11px 20px;border-radius:10px;border:2px solid var(--trace);background:#062a1f;color:var(--ink);cursor:pointer}
+button.btn:hover{background:var(--trace);color:#062a1f}
+button.flip{background:var(--pad);color:#062a1f}
+.keys{text-align:center;font-size:13px;opacity:.75;margin-top:14px}
+kbd{font-family:'Chakra Petch',monospace;background:#062a1f;border:1px solid var(--trace);border-radius:4px;padding:1px 6px}
+.done{text-align:center;margin-top:12px;color:#6fcf97;font-weight:800;min-height:22px}
+</style></head><body><div class="wrap">
+<header><span class="chip">GRADE 7 &bull; CHAPTER 10</span>
+<h1>Electric Current and Its Effects</h1><p class="sub">Keyword Flashcards &mdash; flip each card to reveal its meaning</p></header>
+<div class="progress"><div class="bar"><div class="fill" id="fill"></div></div><div class="count" id="count"></div></div>
+<div class="dots" id="dots"></div>
+<div class="scene"><div class="card" id="card" tabindex="0" role="button" aria-label="Flashcard, press Space to flip">
+ <div class="face front"><span class="pad p1"></span><span class="pad p2"></span><span class="pad p3"></span><span class="pad p4"></span><span class="trace t1"></span><span class="trace t2"></span>
+  <div class="term" id="term"></div><div class="hint">Click or press Space to flip</div></div>
+ <div class="face back"><div class="bt" id="bt"></div><div class="def" id="def"></div></div>
+</div></div>
+<div class="controls"><button class="btn" id="prev">&#9664; Prev</button><button class="btn flip" id="flip">Flip</button><button class="btn" id="next">Next &#9654;</button><button class="btn" id="shuf">Shuffle</button></div>
+<div class="done" id="done"></div>
+<div class="keys"><kbd>Space</kbd>/<kbd>Enter</kbd> flip &nbsp; <kbd>&larr;</kbd><kbd>&rarr;</kbd> move &nbsp; <kbd>S</kbd> shuffle</div>
+</div>
+<script>
+const CARDS = [{"t": "Ammeter", "d": "A device used to measure the electric current flowing in a circuit. Its reading is shown in amperes (A)."}, {"t": "Ampere", "d": "The SI unit of electric current, written as A. Small currents are often given in milliamperes, where 1 A = 1000 mA."}, {"t": "Battery", "d": "A combination of two or more electric cells joined so that the positive terminal of one cell is connected to the negative terminal of the next."}, {"t": "Closed Circuit", "d": "An electric circuit with a complete, unbroken path from the positive terminal to the negative terminal of the cell, so current flows and the bulb glows."}, {"t": "Conductors", "d": "Materials that allow electric current to pass through them, such as copper, iron, aluminium, and silver."}, {"t": "Electric Cell", "d": "A source of electricity with a positive and a negative terminal that converts stored chemical energy into electrical energy."}, {"t": "Electric Current", "d": "The flow of electric charge, carried mainly by electrons moving in a definite direction through a conductor. Formula (enrichment): I = Q/t, where Q is charge in coulombs (C) and t is time in seconds (s)."}, {"t": "Electric Fuse", "d": "A safety device containing a wire of low melting point that melts and breaks the circuit when the current rises above a safe limit."}, {"t": "Electromagnet", "d": "A core of magnetic material, such as soft iron, wound with a coil of wire, which behaves like a magnet only while current passes through the coil."}, {"t": "Electrons", "d": "Tiny negatively charged particles in atoms; free electrons moving in one direction through a wire form an electric current."}, {"t": "Insulators", "d": "Materials that do not allow electric current to pass through them, such as wood, paper, rubber, and plastic."}, {"t": "Open Circuit", "d": "An electric circuit with a break or gap in its path, so no current flows through any part of it and the bulb does not glow."}, {"t": "Solenoid", "d": "A long coil of insulated wire, often wound around a metal core, that produces a strong magnetic field inside it when current passes through."}, {"t": "Switch", "d": "A device used to open or close an electric circuit; when it is turned on, it completes the circuit and current flows."}, {"t": "Voltmeter", "d": "A device used to measure the voltage of an electrical circuit; voltage is like the electrical 'pressure' that pushes current, similar to water pressure in a hose."}];
+let order = CARDS.map((_,i)=>i), idx = 0, seen = new Set();
+const $ = id => document.getElementById(id);
+const card = $('card');
+function render(){
+  const c = CARDS[order[idx]];
+  card.classList.remove('flipped');
+  setTimeout(()=>{ $('term').textContent = c.t; $('bt').textContent = c.t; $('def').textContent = c.d; }, 150);
+  $('count').textContent = (idx+1) + ' / ' + CARDS.length;
+  dots();
+}
+function dots(){
+  const d = $('dots'); d.innerHTML = '';
+  order.forEach((ci,i)=>{ const b=document.createElement('button'); b.className='dot'+(seen.has(ci)?' seen':'')+(i===idx?' cur':'');
+    b.setAttribute('aria-label','Card '+(i+1)); b.onclick=()=>{idx=i;render();}; d.appendChild(b); });
+  $('fill').style.width = (seen.size/CARDS.length*100)+'%';
+  $('done').textContent = seen.size===CARDS.length ? 'All '+CARDS.length+' keywords reviewed. Great work!' : '';
+}
+function flip(){ card.classList.toggle('flipped'); if(card.classList.contains('flipped')){ seen.add(order[idx]); dots(); } }
+function go(n){ idx=(idx+n+CARDS.length)%CARDS.length; render(); }
+function shuffle(){ for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];} idx=0; render(); }
+card.onclick = flip; $('flip').onclick = flip; $('next').onclick=()=>go(1); $('prev').onclick=()=>go(-1); $('shuf').onclick=shuffle;
+document.addEventListener('keydown', e=>{
+  if(e.key===' '||e.key==='Enter'){ e.preventDefault(); flip(); }
+  else if(e.key==='ArrowRight') go(1); else if(e.key==='ArrowLeft') go(-1);
+  else if(e.key==='s'||e.key==='S') shuffle();
+});
+render();
+</script></body></html>
